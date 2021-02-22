@@ -27,56 +27,54 @@ let candidateAnswers = [];
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-  candidateName = input.question("What is your name?")
+  candidateName = input.question("Candidate's name:")
   
 }
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  for (const q of questions){
+  for (let i = 0; i<5; i++){
     
-     let answ = input.question(q);
-     candidateAnswers.push(answ);
-    
+     candidateAnswer = input.question(`${i+1}) ${questions[i]}\nYour answer is: `);
+     console.log(`Correct answer is: ${correctAnswers[i]}\n`)
+     candidateAnswers.push(candidateAnswer);
   }
     
-     
-    
-  
-  
 }
 
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  // if(candidateAnswer===correctAnswer){
-  //   console.log("Correct answer");
-  // }else {
-  //   console.log("Incorrect answer");
-  // }
-  let num=0;
-  console.log("Candidate name: " + candidateName);
-  for (const q of questions){
-    num++;
-    console.log(num + ") " + q);
-  }
-  for (const c of candidateAnswers){
-    console.log("your answer "+ c);
-  }
-    for (const a of correctAnswers){
-    console.log("correct answer " + a);
+//    if(String(candidateAnswer).toLowerCase()==String(correctAnswer).toLowerCase()){
+//   console.log("Correct answer");
+//    }else {
+//     console.log("Incorrect answer");
+//  }
+ 
+  let correctGrade = 0;
+ 
+  for (let i = 0; i<5; i++){
+    if(String(candidateAnswers[i]).toLowerCase()==String(correctAnswers[i]).toLowerCase()) {
+      correctGrade++;
+    }
   }
 
-  let grade;
+  let grade = correctGrade/5*100;
+  let status = "FAILED";
+
+if(correctGrade>=4){
+  status = "PASSED";
+}
+
+console.log(`>>> Overall Grade: ${grade}% (${correctGrade} of 5 responses correct) <<<`);
+console.log(`>>> Status: ${status} <<<`);
   
-
   return grade;
 }
 
 function runProgram() {
   askForName();
   // TODO 1.1c: Ask for candidate's name //
-  console.log("Hello " + candidateName + "!");
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
