@@ -27,7 +27,7 @@ let candidateAnswers = [];
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-  candidateName = input.question("Candidate's name:")
+  candidateName = input.question("Candidate Name: ")
   
 }
 
@@ -35,8 +35,8 @@ function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
   for (let i = 0; i<5; i++){
     
-     candidateAnswer = input.question(`${i+1}) ${questions[i]}\nYour answer is: `);
-     console.log(`Correct answer is: ${correctAnswers[i]}\n`)
+     candidateAnswer = input.question(`${i+1}) ${questions[i]}\nYour Answer: `);
+     console.log(`Correct Answer: ${correctAnswers[i]}\n`)
      candidateAnswers.push(candidateAnswer);
   }
     
