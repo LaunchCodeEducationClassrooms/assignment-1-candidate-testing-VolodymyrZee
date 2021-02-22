@@ -45,12 +45,7 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-//    if(String(candidateAnswer).toLowerCase()==String(correctAnswer).toLowerCase()){
-//   console.log("Correct answer");
-//    }else {
-//     console.log("Incorrect answer");
-//  }
- 
+
   let correctGrade = 0;
  
   for (let i = 0; i<5; i++){
